@@ -1,0 +1,116 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block form_container %}
+    <div class="form-container">
+        <h1>Basic Info</h1>
+        <div class="sidebar-divider"></div>
+        <form action="{{ url_for('submit_home_form') }}" method="post" id="userForm">
+            <div class="form-group">
+                <label for="stock">1.Stock Name</label>
+                <select id="stock" name="stock" required>
+                    <option value='GOOG'>GOOG</option>
+                    <option value="AAPL">AAPL</option>
+                    <option value="AMZN">AMZN</option>
+                    <option value="FB">FB</option>
+                    <option value="NFLX">NFLX</option>
+                    <option value="MSFT">MSFT</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% endblock %}
+
+    {% block navbar_header %}
+    <h2>Home Header</h2>
+    {% endblock %}
+
+    {% block navbar_main %}
+    {% if form_data %}
+        <!-- <h3>Submitted Information</h3>
+        <p><strong>Stock Name:</strong> {{ form_data.stock }}</p> -->
+    {% endif %}
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+        <div class="card">
+            <h3>Earnings (Monthly)</h3>
+            <p>$3,000</p>
+            <i class="fas fa-clock card-icon"></i> <!-- Clock icon -->
+        </div>
+        <div class="card">
+            <h3>Earnings (Annual)</h3>
+            <p>$36,000</p>
+            <i class="fas fa-dollar-sign card-icon"></i> <!-- Dollar sign icon -->
+        </div>
+        <div class="card">
+            <h3>Tasks</h3>
+            <p>15</p>
+            <i class="fas fa-bullhorn card-icon"></i> <!-- Bullhorn icon -->
+        </div>
+        <div class="card">
+            <h3>Pending Requests</h3>
+            <p>8</p>
+            <i class="fas fa-poll card-icon"></i> <!-- Poll icon -->
+        </div>
+    </div>
+
+    <!-- Plotly Charts Section -->
+    <div class="cards-container-plotly">
+        <div class="card-plots">
+            <h3>Bar Chart Overview</h3>
+            <div class="sidebar-divider"></div>
+            <div class="plotly-chart" id="bar-chart"></div> <!-- Container for Plotly chart -->
+        </div>
+        <div class="card-pie-chart">
+            <h3>Pie Chart Overview</h3>
+            <div class="sidebar-divider"></div>
+            <div class="plotly-chart" id="pie-chart"></div> <!-- Container for Plotly chart -->
+        </div>
+    </div>
+
+    <!-- Plotly Charts Section -->
+    <div class="cards-container-row2">
+        <div class="card-line-chart">
+            <h3>Line Chart Overview</h3>
+            <div class="sidebar-divider"></div>
+            <div class="line-chart-cards" id="line-chart"></div> <!-- Container for Plotly chart -->
+        </div>
+    </div>
+
+    <!-- Plotly Charts Section -->
+    <div class="cards-container-row3">
+        <div class="card-plots-row3">
+            <h3>Funnel Chart Overview</h3>
+            <div class="sidebar-divider"></div>
+            <div class="row3-plotly" id="funnel-chart"></div> <!-- Container for Plotly chart -->
+        </div>
+        <div class="table-container">
+            <h3>Stock Details</h3>
+            <div class="sidebar-divider"></div>
+            <table class="stock-table" id="stockTable">
+                <thead>
+                    <tr>
+                        <th>Stock Name</th>
+                        <th>Date</th>
+                        <th>MAE 200</th>
+                        <th>Price Deviation</th>
+                        <th>Zone Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>

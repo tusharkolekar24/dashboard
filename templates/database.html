@@ -1,0 +1,138 @@
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for the content */
+.container {
+    padding: 20px;
+}
+
+/* Header container styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Gap below the heading */
+}
+
+/* Style for the table container */
+.table-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Style for the table */
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Style for table headers */
+.stock-table th {
+    background-color: #6cb0f9;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Style for table cells */
+.stock-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style for table rows */
+.stock-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.stock-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Heading style */
+.container h1 {
+    color: #333;
+    margin: 0;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Download button */
+.download-button {
+    background-color: #85c0f0;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 90%;
+}
+
+.download-button:hover {
+    background-color: #218838;
+}
+
+/* Pagination Controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjusted space */
+    margin-bottom: -20px; /* Adjusted space */
+}
+
+.pagination-button {
+    background-color: #6cb0f9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.pagination-button:hover {
+    background-color: #5a9bd5;
+}
+
+.pagination-info {
+    align-self: center;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+</style>
+
+{% extends "base.html" %}
+
+{% block navbar_main %}
+<div class="container">
+    <a href="{{ url_for('download_csv') }}" class="download-button">Download CSV</a>
+    <h1>Stock Data Overview</h1>
+    
+    <div class="table-container">
+        {{ table_html | safe }}
+    </div>
+    <div class="pagination">
+        {% if current_page > 1 %}
+            <a href="{{ url_for('database', page=current_page - 1) }}" class="pagination-button">Previous</a>
+        {% endif %}
+        <span class="pagination-info">Page {{ current_page }} of {{ total_pages }}</span>
+        {% if current_page < total_pages %}
+            <a href="{{ url_for('database', page=current_page + 1) }}" class="pagination-button">Next</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,693 @@
+/* static/style.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidenav {
+
+    /* flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    overflow: auto; /* Ensure content can scroll if necessary */
+
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    border-right: 1px solid #e7e7e8;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: auto; /* Ensure content can scroll if necessary*/
+}
+
+.sidenav h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: rgb(99, 99, 233);
+    text-align: center;
+}
+
+.sidenav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+    background-color: rgb(171, 171, 238);
+    border: 1px solid transparent;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidenav a:hover {
+    background-color: #fff;
+    color: rgb(171, 171, 238);
+    border-color: rgb(171, 171, 238);
+}
+
+.sidenav a i {
+    margin-right: 10px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+/* Style for the icon inside the h1 */
+.sidenav h1 i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 32px; /* Size of the icon */
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px; */
+    position: relative;
+    overflow-y: auto;
+    background-color: #ede7e7;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(171, 171, 238);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-bar button:hover {
+    background-color: #fff;
+    color: rgb(171, 171, 238);
+    border: 1px solid rgb(171, 171, 238);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.user-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile div {
+    font-size: 16px;
+}
+
+
+/* Add to static/style.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 18px; /* Apply 15px margin to left and right */
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 400px;
+}
+
+.navbar-left button {
+    padding: 8px 12px;
+    border: none;
+    background-color: rgb(171, 171, 238);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.navbar-left button:hover {
+    background-color: #fff;
+    color: rgb(171, 171, 238);
+    border: 1px solid rgb(171, 171, 238);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right a {
+    margin-left: 15px;
+    color: rgb(171, 171, 238);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navbar-right h1{
+    font-size: 18px; 
+    color: rgb(99, 99, 233);
+}
+
+.navbar-right a:hover {
+    color: #000;
+}
+
+.navbar-right .user-profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+/* Navbar Main Styling */
+.navbar-content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 5px; /* Add padding around the content */
+    /* background-color: #fff; /* Background color to ensure separation */
+    /* border-radius: 8px; /* Rounded corners */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space below the navbar main */
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px; 
+    text-align: center;
+    border-top: 1px solid #e7e7e8;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    /* margin: 0; Ensure there's no margin */
+    position: relative; /* Ensure footer is positioned correctly */
+    flex-shrink: 0; /* Prevent shrinking in flex layout */
+    margin-left: 18px;
+    margin-right: 14px;
+    margin-top: -10px;
+}
+
+.footer-content {
+    /* max-width: 1200px; */
+    margin-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-content ul li {
+    margin: 0;
+}
+
+.footer-content ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-content ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Button */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Button */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between text and arrow */
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(171, 171, 238);
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.dropdown-button i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.dropdown-button .text {
+    flex: 1; /* Takes up available space */
+    text-align: left; /* Ensure text aligns left */
+}
+
+.dropdown-button:hover {
+    background-color: #fff;
+    color: rgb(171, 171, 238);
+    border-color: rgb(171, 171, 238);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgb(171, 171, 238);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+/* Form Container */
+.form-container {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgb(171, 171, 238);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%; /* Position below the dropdown button */
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh; /* Ensure the form does not exceed viewport height */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.form-container h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: rgb(171, 171, 238);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label{
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: rgb(171, 171, 238);
+}
+
+/* input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+} */
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Show dropdown content when button is clicked */
+.dropdown-button.active + .form-container {
+    display: block;
+}
+
+/* Style for the select dropdown */
+.form-group select {
+    width: 100%; /* Full width of the parent container */
+    padding: 10px; /* Space inside the dropdown */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Font size inside the dropdown */
+    background-color: #fff; /* Background color of the dropdown */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+/* Focus state for the select dropdown */
+.form-group select:focus {
+    border-color: #007bff; /* Border color on focus */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Optional: Styling for dropdown options */
+.form-group option {
+    padding: 8px; /* Space inside each option */
+}
+
+/* Your updated CSS */
+.cards-container {
+    margin-top: 5px; /* Space above the container */
+    margin-bottom: 20px; /* Space below the container */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between the cards */
+    justify-content: space-around; /* Align cards with space around them */
+    margin-left: 9px;
+}
+
+.card {
+    background: #f6f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Increased padding to make space for the icon */
+    width: 290px; /* Adjust width as needed */
+    text-align: left; /* Align text to the left */
+    position: relative; /* Required for positioning the icon */
+    transition: background 0.3s, transform 0.3s;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1rem; /* Make heading font size smaller */
+    text-align: left; /* Align heading to the left */
+    color: #6cb0f9;
+}
+
+.card p {
+    font-size: 1.5rem; /* Make the paragraph text size larger */
+    color: #333;
+    margin: 0; /* Remove default margin to align closer */
+    text-align: left; /* Align text to the left */
+}
+
+.card-icon {
+    font-size: 2.5rem; /* Adjust icon size as needed */
+    color: #c8d4da; /* Color of the icon */
+    position: absolute; /* Positioning the icon absolutely */
+    right: 25px; /* Distance from the right edge */
+    top: 50%; /* Vertically center the icon relative to the card */
+    transform: translateY(-50%); /* Correct vertical alignment */
+}
+
+.card:hover {
+    background: #f8f9fa;
+    transform: translateY(-5px);
+}
+
+.cards-container-plotly {
+    display: flex; /* Enable Flexbox layout */
+    gap: 20px; /* Space between the two columns */
+    margin-top: 20px; /* Space above the container */
+    display: flex;
+    margin-left: 15px;
+    margin-right: 12px;
+}
+
+.card-plots, .card-pie-chart {
+    background: #f6f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    flex: 1; /* Allow the columns to grow and fill the available space */
+    text-align: left;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.card-plots h3, .card-pie-chart h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #6cb0f9;
+}
+
+.sidebar-divider {
+    border-top: 2px solid #dee2e6;
+    margin: 5px 0; /* Spacing around the divider */
+}
+
+.plotly-chart {
+    width: 100%; /* Full width of the card */
+    height: 350px; /* Set height of the plot */
+    margin-left: 5px; /* 5px distance from the left side */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+/* second row details */
+.cards-container-row2 {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if needed */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin-right: 6px; /* Space inside the container */
+    margin-left: 15px; /* Space inside the container */
+    margin-top: 15px;
+}
+
+/* Individual card styling */
+.card-line-chart {
+    background: #f6f1f1;
+    border: 1px solid #ddd; /* Light border around the card */
+    border-radius: 8px; /* Rounded corners */
+    padding: 9px; /* Space inside the card */
+    width: 100%; /* Full width of the card container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.card-line-chart h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #6cb0f9;
+}
+
+/* Container for the Plotly chart */
+.line-chart-cards {
+    width: 100%; /* Full width of the card */
+    height: 300px; /* Fixed height for the chart */
+    background-color: #f9f9f9; /* Light gray background to distinguish the chart area */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.cards-container-row3 {
+    display: flex; /* Enable Flexbox layout */
+    gap: 20px; /* Space between the two columns */
+    margin-top: 20px; /* Space above the container */
+    margin-left: 15px;
+    margin-right: 12px;
+}
+
+.card-plots-row3 {
+    background: #f6f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    flex: 1; /* Allow the columns to grow and fill the available space */
+    text-align: left;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.card-plots-row3 h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #6cb0f9;
+}
+
+.row3-plotly {
+    width: 100%; /* Full width of the card */
+    height: 450px; /* Set height of the plot */
+    margin-left: 5px; /* 5px distance from the left side */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+/* Container for the table */
+.table-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    flex: 1; /* Allow the table container to grow and fill the available space */
+}
+
+.table-container h3 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #6cb0f9;
+}
+
+/* Style for the table */
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style for table headers */
+.stock-table th {
+    background-color: #6cb0f9;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Style for table cells */
+.stock-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style for table rows */
+.stock-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.stock-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Optional: Style for page container or additional sections */
+.page-container {
+    padding: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left input, .navbar-left button {
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .navbar-right {
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-left input {
+        width: 100%;
+    }
+}

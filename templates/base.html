@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dynamic Content Loading</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <div class="sidenav">
+        <h1><i class='fas fa-dragon'></i>CloseAI</h1>
+        <a href="{{ url_for('home') }}"><i class='fas fa-home'></i> Home</a>
+        <a href="{{ url_for('database') }}"><i class='fas fa-database'></i> Database</a>
+        <a href="{{ url_for('logout') }}"><i class='fas fa-sign-in-alt'></i>Logout</a>
+        <div class="dropdown">
+            <button class="dropdown-button">
+                <i class='fas fa-tools'></i>
+                <span class="text">Tool</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+
+            {% block form_container %}{% endblock %}
+        </div>
+        
+    </div>
+
+    <div class="content">
+
+        <div class="navbar">
+            <div class="navbar-left">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="navbar-right">
+                <h1>Welcome, {{ username }}!</h1>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fas fa-bell"></i></a>
+                <a href="#" class="user-profile">
+                    <img src="https://via.placeholder.com/30" alt="User">
+                </a>
+                
+            </div>
+        </div>
+
+        <div class="navbar-content-container">
+            <!-- <div id="navbar-header">
+                {% block navbar_header %}{% endblock %}
+            </div> -->
+            <div id="navbar-main">
+                {% block navbar_main %}{% endblock %}
+            </div>
+
+            <!-- <div id="navbar-footer">
+                {% block navbar_footer %}{% endblock %}
+            </div> -->
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 Made With By</p>
+                <ul>
+                    <!-- <li><a href="#">Theme Selection</a></li> -->
+                    <li><a href="#">Distributed By</a></li>
+                    <!-- <li><a href="#">ThemeWagon</a></li> -->
+                    <li><a href="#">License</a></li>
+                    <!-- <li><a href="#">More Themes</a></li> -->
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    const config = {
+                    displaylogo: false,
+                    modeBarButtonsToRemove: [
+                        'resetAxes', 'spikelines', 'zoomIn2d', 'zoomOut2d',
+                        'zoom2d', 'pan2d', 'select2d'
+                    ]
+                };
+
+     document.querySelector('.dropdown-button').addEventListener('click', function() {
+            var formContainer = this.nextElementSibling;
+                if (formContainer.style.display === 'block') {
+                    formContainer.style.display = 'none';
+                } else {
+                    formContainer.style.display = 'block';
+                }
+        });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fetch and render line chart data
+        fetch('/bar_chart') // Ensure this matches your Flask route for line chart
+            .then(response => response.json())
+            .then(data => {
+                var graphJson = JSON.parse(data.graph_json);
+                Plotly.react('bar-chart', graphJson.data, graphJson.layout, config);
+            })
+            .catch(error => console.error('Error fetching line chart data:', error));
+        
+        // Fetch and render pie chart data
+        fetch('/pie_chart') // Ensure this matches your Flask route for pie chart
+            .then(response => response.json())
+            .then(data => {
+                var graphJson = JSON.parse(data.graph_json);
+                Plotly.react('pie-chart', graphJson.data, graphJson.layout, config);
+            })
+            .catch(error => console.error('Error fetching pie chart data:', error));
+
+        // Fetch and render line chart data
+        fetch('/line-chart') // Ensure this matches your Flask route for pie chart
+            .then(response => response.json())
+            .then(data => {
+                var graphJson = JSON.parse(data.graph_json);
+                Plotly.react('line-chart', graphJson.data, graphJson.layout, config);
+            })
+            .catch(error => console.error('Error fetching pie chart data:', error));
+
+        // Fetch and render line chart data
+        fetch('/funnel-chart') // Ensure this matches your Flask route for pie chart
+            .then(response => response.json())
+            .then(data => {
+                var graphJson = JSON.parse(data.graph_json);
+                Plotly.react('funnel-chart', graphJson.data, graphJson.layout, config);
+            })
+            .catch(error => console.error('Error fetching pie chart data:', error));
+    });
+
+    async function fetchStockData() {
+            const response = await fetch('/stocks');
+            const data = await response.json();
+            const tbody = document.getElementById('stockTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = ''; // Clear existing rows
+
+            // Display only the top 5 rows
+            data.slice(0, 5).forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.Stock_Name}</td>
+                    <td>${row.Date}</td>
+                    <td>${row.MAE_200}</td>
+                    <td>${row.Price_Deviation}</td>
+                    <td>${row.Zone_Detail}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Fetch and render data on page load
+        fetchStockData();
+   
+    </script>
+</body>
+</html>
